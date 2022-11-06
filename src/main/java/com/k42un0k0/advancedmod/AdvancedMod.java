@@ -1,10 +1,13 @@
 package com.k42un0k0.advancedmod;
 
 import com.k42un0k0.advancedmod.client.renderer.SpriteLayer;
+import com.k42un0k0.advancedmod.codegen.assets.AdvancedItemModelProvider;
 import com.k42un0k0.advancedmod.codegen.assets.lang.AdvancedEnUsLanguageProvider;
 import com.k42un0k0.advancedmod.effect.AdvancedAttributes;
 import com.k42un0k0.advancedmod.effect.AdvancedEffects;
 import com.k42un0k0.advancedmod.effect.AdvancedPotions;
+import com.k42un0k0.advancedmod.enchantment.AdvancedEnchantments;
+import com.k42un0k0.advancedmod.item.AdvancedItems;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
@@ -12,7 +15,6 @@ import net.minecraft.client.renderer.entity.PlayerRenderer;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -41,6 +43,8 @@ public class AdvancedMod {
         AdvancedEffects.register(eventBus);
         AdvancedPotions.register(eventBus);
         AdvancedAttributes.register(eventBus);
+        AdvancedEnchantments.register(eventBus);
+        AdvancedItems.register(eventBus);
     }
 
     // Register the setup method for modloading
@@ -89,6 +93,7 @@ public class AdvancedMod {
         DataGenerator gen = event.getGenerator();
         if (event.includeClient()) {
             gen.addProvider(new AdvancedEnUsLanguageProvider(gen, MOD_ID));
+            gen.addProvider(new AdvancedItemModelProvider(gen, MOD_ID, event.getExistingFileHelper()));
         }
         if (event.includeServer()) {
 //            gen.addProvider(new ExampleModFluidTagsProvider(gen, MOD_ID,

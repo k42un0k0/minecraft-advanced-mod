@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 version = '1.0'
 group = 'com.k42un0k0.advancedmod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'Sprite'
+archivesBaseName = 'Advanced Mod'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
 
@@ -143,7 +143,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "sprite",
+            "Specification-Title": "advancedmod",
             "Specification-Vendor": "spritesareus",
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
