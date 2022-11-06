@@ -13,7 +13,7 @@ public class AdvancedItems {
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
             AdvancedMod.MOD_ID);
     public static final RegistryObject<Item> GLOVE = ITEMS.register("glove",
-            () -> new GloveItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new GloveItem(new Item.Properties().durability(20).tab(ItemGroup.TAB_COMBAT)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
